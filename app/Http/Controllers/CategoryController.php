@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreCategoryRequest;
 use App\Services\CategoryService;
 use Illuminate\Http\Request;
 
@@ -16,14 +17,14 @@ class CategoryController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(StoreCategoryRequest $request)
     {
-        //
+        return response()->json($this->categoryService->createCategory($request));
     }
 
     public function show(string $id)
     {
-        //
+        return response()->json($this->categoryService->getCategory($id));
     }
 
 
