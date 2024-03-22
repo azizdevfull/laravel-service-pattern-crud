@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreCategoryRequest;
+use App\Http\Requests\UpdateCategoryRequest;
 use App\Services\CategoryService;
 use Illuminate\Http\Request;
 
@@ -28,9 +29,9 @@ class CategoryController extends Controller
     }
 
 
-    public function update(Request $request, string $id)
+    public function update(UpdateCategoryRequest $request, string $id)
     {
-        //
+        return response()->json($this->categoryService->updateCategory($request, $id));
     }
 
     public function destroy(string $id)

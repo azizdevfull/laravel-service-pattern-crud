@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Http\Requests\StoreCategoryRequest;
+use App\Http\Requests\UpdateCategoryRequest;
 use App\Interfaces\CategoryServiceInterface;
 use App\Models\Category;
 
@@ -21,5 +22,11 @@ class CategoryService implements CategoryServiceInterface
     public function getCategory(string $id)
     {
         return Category::find($id);
+    }
+
+    public function updateCategory(UpdateCategoryRequest $request, string $id)
+    {
+        $category = $this->getCategory($id);
+        return $category->update($request->validated());
     }
 }
