@@ -14,4 +14,6 @@ interface CategoryServiceInterface
     public function getCategory(string $id);
 
     public function updateCategory(UpdateCategoryRequest $request, string $id);
+
+    public function deleteCategory(string $id);
 }
